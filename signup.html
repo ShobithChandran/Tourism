@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kerala Tourism</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.keralatourism.org/images/hri/large/kumbalangi_backwaters_kochi_1_378.jpg">
+</head>
+<body>
+    
+<!-- navbar starts -->
+<div>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><div class="logo"><img src="images/logo.png" height="80px" width="100px" alt="logo"></div></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 45%;">
+          <div class="head-tag">
+            <a href="home.html" style="text-decoration: none;">Home</a>
+            <a href="district.html" style="text-decoration: none;">District</a>
+            <a href="login.html" style="text-decoration: none;">Login</a>
+            <a href="signup.html" style="text-decoration: none;">Sign-up</a>
+          </div>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>    
+    </header>
+</div>
+<!-- navbar ends -->
+<br>
+
+
+
+<!-- style="background-image: url('images/signbg.jpg');" -->
+
+
+
+<!-- Form starts -->
+<div>
+  <div class="container center-sign">
+    <center><h4> CREATE AN ACCOUNT</h4></center>
+    <div class="row justify-content-center jumbotron">
+      <div class="col-md-10">
+        <div class="signbg" >
+          <form action="login.html"  onsubmit= "return firstname() && lastname() && validation() && passwordChanged() && validationph() && address() && cityname() && statename() && zipcode() && checkinput();">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputname">First name</label>
+                <input type="text" class="form-control" placeholder="First name" id="cit" onkeyup="return firstname();" required>
+                <label for="city" id="citerror"></label>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputname">Last name</label>
+                <input type="text" class="form-control" placeholder="Last name" id="citi" onkeyup="return lastname();" required>
+                <label for="city" id="citierror"></label>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" onkeyup="return validation();" pattern=".+@gmail.com" size="30" required>
+               <label for="email" id="error"></label>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="pwd">Password</label><span id="strength" ></span>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" onkeyup="return passwordChanged();" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>  
+                <label for="password" id="pwderror"></label>
+                <div id="message">
+                  <h3>Password must contain the following:</h3>
+                  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                  <p id="number" class="invalid">A <b>number</b></p>
+                  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                </div>
+                <div class="progress w-50">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;" id="progress"></div>
+                  </div>
+                
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phonenumber">Phone number</label>
+              <input type="text" class="form-control" id="ph" placeholder="Enter your phone number" onkeyup="return validationph();" title="Must contain numbers from 0 to 9 only and a totel of 10 digits " size="10" pattern="^\d{10}$" required>
+              <label for="phonenumber" id="pherror"></label>
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="address" class="form-control" id="ad" placeholder="1234 Main St" onkeyup="return address();" required>
+              <label for="address" id="aderror"></label>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="city" onkeyup="return cityname();" required>
+                <label for="city" id="cityerror"></label>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label >
+                <select id="stat" class="form-control" name="stat" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="1">Andhra Pradesh</option>
+                  <option value="2">Arunachal Pradesh</option>
+                  <option value="3">Assam</option>
+                  <option value="4">Bihar</option>
+                  <option value="5">Chhattisgarh</option>
+                  <option value="6">Goa</option>
+                  <option value="7" >Gujarat</option>
+                  <option value="8">Haryana</option>
+                  <option value="9">Himachal Pradesh</option>
+                  <option value="10">Jharkhand</option>
+                  <option value="11">Karnataka</option>
+                  <option value="12">Kerala</option>
+                  <option value="13">Maharashtra</option>
+                  <option value="14">Mizoram</option>
+                  <option value="15">Nagaland</option>
+                  <option value="16">Odisha</option>
+                  <option value="17">Punjab</option>
+                  <option value="18">Rajasthan</option>
+                  <option value="19">Sikkim</option>
+                  <option value="20">Tamil Nadu</option>
+                  <option value="21">Telangana</option>
+                  <option value="22">Tripura</option>
+                  <option value="23"> Uttar Pradesh</option>
+                  <option value="24">Uttarakhand</option>
+                  <option disabled value="">Union Terittories</option>
+                  <option value="25">Andaman and Nicobar Islands</option>
+                  <option value="26">Dadra & Nagar Haveli and Daman & Diu</option>
+                  <option value="27">Delhi</option>
+                  <option value="28">Lakshadweep</option>
+                  <option value="29">Puducherry</option>
+                  <option value="30">Ladakh</option>
+                  <option value="31">Other country</option>
+                </select>
+              </div>
+                
+              <div class="form-group col-md-2">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" onkeyup="return zipcode();" required>
+                <label for="city" id="ziperror"></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="checkboxz" required>
+                <label class="form-check-label" for="gridCheck">
+                  Confirm
+                </label>
+                <br>
+              </div>
+            </div>
+            <div class="button-align">
+              <center><button type="submit" class="btn btn-success">Sign in</button></center>
+            <br>
+            </div>
+            <div class="text-center">
+            <a href="login.html">Already have an account?</a>
+          </div>
+          </form>
+        </div>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+
+<!-- Form Ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<div class="specialities">
+    <!-- Specialities -->
+  <section class="slider">
+    <br><br>
+    <h4 class="title text-center">KERALA- GOD'S OWN COUNTRY</h4>
+    <p><h6 class="text-center">AYURVEDA | MONSOON | FESTIVAL | HOUSEBOAT | FOOD | HILLS</h6></p>
+    <br>
+  <div class="container">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <!-- slider 1 -->
+      <div class="carousel-item active">
+        <div class="row">
+        <div class="col-3"><img src="images/ayurvedha.jpg" class="d-block w-100" alt="ayurveda" height="175px" width="200px"> </div>
+        <div class="col-3"><img src="images/monsoon.jpg" class="d-block w-100" alt="monsoon" height="175px" width="200px"> </div>
+        <div class="col-3"><img src="images/food1.jpg" class="d-block w-100" alt="food" height="175px" width="200px"> </div>
+        <div class="col-3"><img src="images/Idukki.jpg" class="d-block w-100" alt="idukki" height="175px" width="200px"> </div>
+      </div>
+    </div>
+    <!-- end of slider 1 -->
+  
+    <!-- slider 2 -->
+    <div class="carousel-item">
+      <div class="row">
+      <div class="col-3"><img src="images/munnar2.jpg" class="d-block w-100" alt="munnar" height="175px" width="200px"> </div>
+      <div class="col-3"><img src="images/festival.jpg" class="d-block w-100" alt="festivals" height="175px" width="200px"> </div>
+      <div class="col-3"><img src="images/Dams.jpg" class="d-block w-100" alt="dams" height="175px" width="200px"> </div>
+      <div class="col-3"><img src="images/hill.jpg" class="d-block w-100" alt="hills" height="175px" width="200px"> </div>
+    </div>
+  </div>
+    <!-- end of slider 2 -->
+  </div>
+  </div>
+  </section>
+  <br><br>
+  <!-- Specialities -->
+  </div>
+  
+  <div class="dd">
+  <!-- footer starts -->
+    <section class="footer">
+      <div class="container">
+       <div class="row">
+         <div class="col-md-3">
+           <h6>PLACES</h6>
+           <div class="place">
+           <p><a href="wayanad.html" style="text-decoration: none;">Wayanad</a></p>
+           <p><a href="idukki.html" style="text-decoration: none;">Idukki</a></p>
+           <p><a href="Thiruvananthapuram.html" style="text-decoration: none;">Thiruvananthapuram</a></p>
+           <p><a href="alappuzha.html" style="text-decoration: none;">Alappuzha</a></p>
+    
+          </div>
+         </div>
+         <div class="col-md-3">
+           <h6>CONTACT</h6>
+              Tourism Department
+              Thiruvananthapuram,
+              kerala, India
+              Phone: +91 6725678922
+           <p>Email: keralatourism@gmail.com</p>
+             FOR ENQUIRY:
+             enquiryatkeralatourism@gmail.com
+         </div>
+         <div class="col-md-3">
+           <div class="social">
+           <h6>FOLLOW US ON</h6>
+           <p><i class="fa fa-facebook-official"></i><a href="#" style="text-decoration: none;"> Facebook</a></p>
+           <p><i class="fa fa-instagram"></i><a href="#" style="text-decoration: none;"> Instagram</a></p>
+           <p><i class="fa fa-youtube-play"></i><a href="#" style="text-decoration: none;"> Youtube</a></p>
+          </div>
+          </div>
+         <div class="col-md-3">
+           <h6>SUBSCRIBE HERE</h6>
+           <input type="text" placeholder="Enter your Email">
+           <br><br>
+           <p><button type="button" class="btn btn-danger">SUBSCRIBE</button></p>
+         </div>
+       </div>
+      </div>
+      <hr>
+      <br>
+      <center><p class="copyright">Copyright@2021</p></center>
+      <br>
+      
+     </section>
+  <!-- footer ends -->
+  </div>
+  </body>
+  </html>
