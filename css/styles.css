@@ -168,3 +168,74 @@ header{
     padding: 20px;
     margin-top: 10px;
   }
+
+/* form .indicator{
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+form .indicator span{
+    width: 100%;
+    height: 100%;
+    background: lightgray;
+    border-radius: 5px;
+}
+
+form .indicator span.medium{
+    margin: 0 3px;
+
+}
+
+.indicator span:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 5px;
+    
+}
+
+form .indicator span.weak:before{
+    background-color: #ff4757;
+
+}
+form .indicator span.medium:before{
+    background-color: orange;
+    
+}
+ */
+
+ .signbg .pw-strength{
+     position: relative;
+     width: 100%;
+     height: 20%;
+     margin-top: 10px;
+     text-align: center;
+     background: #f2f2f2;
+     display: none;;
+ }
+
+ .signbg .pw-strength span:nth-child(1) {
+     position: relative;
+     font-size: 13px;
+     color: #111;
+     z-index: 2;
+     font-size: 600;
+ }
+ .signbg .pw-strength span:nth-child(2) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    z-index: 1;
+    transition: all 300ms ease-in-out;
+    
+}
