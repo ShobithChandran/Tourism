@@ -95,7 +95,7 @@
             </div>
             <div class="form-group">
               <label for="phonenumber">Phone number</label>
-              <input type="text" class="form-control" id="ph" placeholder="Enter your phone number" onkeyup="return validationph();" title="Must contain numbers from 0 to 9 only and a totel of 10 digits " size="10" required>
+              <input type="text" class="form-control" id="ph" placeholder="Enter your phone number" onkeyup="return validationph();" pattern="\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})" title="Must contain numbers from 0 to 9 only and a totel of 10 digits " size="10" required>
               <label for="phonenumber" id="error3"></label>
             </div>
             <div class="form-group">
