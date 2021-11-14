@@ -1,6 +1,8 @@
 let email = document.getElementById("email");
 function validation()
 {
+
+
     let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3}?)$/
     if(regexp.test(email.value))
     {
@@ -24,6 +26,62 @@ function validation()
 }
 
 
+
+
+
+
+
+
+function validatePassword(password1) {
+                
+                // Do not show anything when the length of password is zero.
+                if (password.length === 0) {
+                    document.getElementById("msg").innerHTML = "";
+                    password.style.borderColor =  "lightgray";
+                    return;
+                }
+                // Create an array and push all possible values that you want in password
+                var matchedCase = new Array();
+                matchedCase.push("[$^@$!%*#?&]"); // Special Charector
+                matchedCase.push("[A-Z]");      // Uppercase Alpabates
+                matchedCase.push("[0-9]");      // Numbers
+                matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+                // Check the conditions
+                var ctr = 0;
+                for (var i = 0; i < matchedCase.length; i++) {
+                    if (new RegExp(matchedCase[i]).test(password1)) {
+                        ctr++;
+                    }
+                }
+                // Display it
+                var color = "";
+                var strength = "";
+                switch (ctr) {
+                    case 0:
+                    case 1:
+                    case 2:
+                        password.style.borderColor =  "#e74c3c";
+                        strength = "Very Weak";
+                        color = "red";
+                        break;
+                    case 3:
+                        password.style.borderColor =  "#e74c3c";
+                        strength = "Medium";
+                        color = "orange";
+                        break;
+                    case 4:
+                        password.style.borderColor =  "#27ae60";
+                        strength = "Strong but need a totel of 8 or more characters";
+                        color = "green";
+                        break;
+
+                        
+                    
+                }
+                document.getElementById("msg").innerHTML = strength;
+                document.getElementById("msg").style.color = color;
+            }
 
 let password = document.getElementById("password");
 function passwordChanged()
